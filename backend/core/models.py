@@ -20,3 +20,13 @@ class Lecturer(models.Model):
 
     def __str__(self):
         return self.lecturer_name
+    
+class Course(models.Model):
+    course_code = models.CharField(max_length=10, primary_key=True)
+    course_name = models.CharField(max_length=100, unique=True)
+    description = models.TextField(blank=True)
+    lecturer = models.ForeignKey(Lecturer, on_delete=models.SET_NULL, null=True)
+    created_at = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.course_name

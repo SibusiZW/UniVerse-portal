@@ -1,5 +1,5 @@
-from .models import Student, Lecturer, Course, Enrollment
-from .serializers import StudentSerializer, LecturerSerializer, CourseSerializer, EnrollmentSerializer
+from .models import Student, Lecturer, Course, Enrollment, Department
+from .serializers import StudentSerializer, LecturerSerializer, CourseSerializer, EnrollmentSerializer, DepartmentSerializer
 from rest_framework import viewsets
 
 # Create your views here.
@@ -18,3 +18,7 @@ class CourseViewSet(viewsets.ModelViewSet):
 class EnrollmentViewSet(viewsets.ModelViewSet):
     queryset = Enrollment.objects.all()
     serializer_class = EnrollmentSerializer
+
+class DepartmentViewSet(viewsets.ModelViewSet):
+    queryset = Department.objects.all()
+    serializer_class = DepartmentSerializer

@@ -42,3 +42,12 @@ class Enrollment(models.Model):
 
     def __str__(self):
         return f"{self.student} - {self.course}"
+    
+class Department(models.Model):
+    department_id = models.CharField(max_length=10, primary_key=True)
+    department_name = models.CharField()
+    description = models.TextField()
+    head_of_department = models.ForeignKey('Lecturer' ,on_delete=models.SET_NULL, blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.department_id}: HOD ( {self.head_of_department} )"

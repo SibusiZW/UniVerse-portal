@@ -51,3 +51,15 @@ class Department(models.Model):
 
     def __str__(self):
         return f"{self.department_id}: HOD ( {self.head_of_department} )"
+    
+class Assignment(models.Model):
+    assignment_id = models.CharField(max_length=10, primary_key=True)
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    issued_by = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
+    date_given = models.DateField(auto_now_add=True)
+    date_due = models.DateField()
+
+    def __str__(self):
+        return f"{self.course}: {self.title}"

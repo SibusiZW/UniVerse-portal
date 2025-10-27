@@ -1,4 +1,4 @@
-from .views import StudentViewSet, LecturerViewSet, CourseViewSet, EnrollmentViewSet, DepartmentViewSet, AssignmentViewSet
+from .views import StudentViewSet, LecturerViewSet, CourseViewSet, EnrollmentViewSet, DepartmentViewSet, AssignmentViewSet, AnnouncementViewSet
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
@@ -9,6 +9,7 @@ router.register(r'courses', CourseViewSet)
 router.register(r'enrollments', EnrollmentViewSet)
 router.register(r'departments', DepartmentViewSet)
 router.register(r'assignments', AssignmentViewSet)
+router.register(r'announcements', AnnouncementViewSet)
 
 urlpatterns = [
     path('', include(router.urls))

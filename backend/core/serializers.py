@@ -1,4 +1,4 @@
-from .models import Student, Lecturer, Course, Enrollment, Department, Assignment
+from .models import Student, Lecturer, Course, Enrollment, Department, Assignment, Announcement
 from rest_framework import serializers
 
 class StudentSerializer(serializers.ModelSerializer):
@@ -35,4 +35,10 @@ class AssignmentSerializer(serializers.ModelSerializer):
     issued_by = serializers.StringRelatedField()
     class Meta:
         model = Assignment
+        fields = '__all__'
+
+class AnnouncementSerializer(serializers.ModelSerializer):
+    made_by = serializers.StringRelatedField()
+    class Meta:
+        model = Announcement
         fields = '__all__'

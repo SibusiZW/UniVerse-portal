@@ -69,3 +69,6 @@ class Announcement(models.Model):
     description = models.TextField(blank=True)
     made_by = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
     announced_on = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

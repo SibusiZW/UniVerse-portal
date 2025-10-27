@@ -63,3 +63,9 @@ class Assignment(models.Model):
 
     def __str__(self):
         return f"{self.course}: {self.title}"
+    
+class Announcement(models.Model):
+    title = models.CharField()
+    description = models.TextField(blank=True)
+    made_by = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
+    announced_on = models.DateField(auto_now_add=True)

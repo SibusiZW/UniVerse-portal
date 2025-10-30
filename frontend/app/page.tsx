@@ -2,11 +2,39 @@
 import Image from "next/image"
 import { useState } from "react";
 import { LogIn } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
 
+  const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  async function handleLogin(e: React.FormEvent) {
+    e.preventDefault()
+    const REQUEST_URL = `http://localhost:3000/api/students/`;
+    const res = await fetch(REQUEST_URL);
+    const data = await res.json();
+
+      const student = data.find(
+        (s: any) => s.student_id === username && s.student_password === password
+      );
+
+
+    if (student) {
+      alert("Login successfull!")
+
+      localStorage.setItem("username", username)
+      localStorage.setItem("loggedIn", "true")
+
+      router.push('http://localhost:3000/dashboard')
+    }
+    else {
+      alert("Incorrect student no. or password")
+    }
+    setUsername("");
+    setPassword("");
+  }
 
   return (
     <div className="flex h-screen items-center justify-center">
@@ -24,9 +52,9 @@ export default function Home() {
           Welcome to UniVerse Portal
         </h1>
 
-          <form>
+          <form onSubmit={handleLogin}>
             <input className="p-4 w-75 border border-blue-300 rounded-md mb-4" placeholder="Enter student no. e.g, ST12345678" value={username} onChange={(e) => setUsername(e.target.value)} required/>
-            <input className="p-4 w-75 border border-blue-300 rounded-md" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+            <input className="p-4 w-75 border border-blue-300 rounded-md" placeholder="Enter password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
 
             <button className="w-full inline-flex items-center justify-center gap-2 py-2 px-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition duration-150 ease-in-out shadow-md mt-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="submit">
               <LogIn size={20}/> Log In

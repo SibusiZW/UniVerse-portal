@@ -1,6 +1,12 @@
+"use client";
 import Image from "next/image"
+import { useState } from "react";
 
 export default function Home() {
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div className="flex h-screen items-center justify-center">
      <div className="bg-white p-10 rounded-xl shadow-2xl w-full max-w-sm text-center text-black">
@@ -17,8 +23,10 @@ export default function Home() {
           Welcome to UniVerse Portal
         </h1>
 
-          <input className="p-4 w-75 border border-blue-300 rounded-md mb-4" placeholder="Enter student no. e.g, ST12345678"/>
-          <input className="p-4 w-75 border border-blue-300 rounded-md" placeholder="Enter password"/>
+          <form>
+            <input className="p-4 w-75 border border-blue-300 rounded-md mb-4" placeholder="Enter student no. e.g, ST12345678" value={username} onChange={(e) => setUsername(e.target.value)} required/>
+            <input className="p-4 w-75 border border-blue-300 rounded-md" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+          </form>
      </div>
     </div>
   )

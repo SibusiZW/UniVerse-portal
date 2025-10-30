@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import LogOutButton from "./LogOutButton"
 
 export default function NavBar()
 {
@@ -36,6 +37,7 @@ export default function NavBar()
                     <Link href={'/dashboard/lecturers'} className="hover:text-gray-300">
                         Lecturers
                     </Link>
+                    <LogOutButton />
                 </div>
             </div>
         </nav>

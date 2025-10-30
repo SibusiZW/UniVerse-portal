@@ -48,7 +48,7 @@ export default function NavBar(){
                                 My Enrollments
                             </Link>
                             <Link href={'/dashboard/courses'} className="hover:text-gray-300">
-                                Available Courses
+                                Offered Courses
                             </Link>
                             <Link  href={'/dashboard/announcements'} className="hover:text-gray-300">
                                 Announcements

@@ -1,0 +1,8 @@
+## Minimal backend requirements inferred from project files
+# Pin Django to the version referenced in `backend/backend/settings.py` and include DRF
+Django==5.2.7
+djangorestframework>=3.14.0,<4
+
+# If you use additional packages (e.g. django-environ, psycopg2-binary, django-cors-headers),
+# add them here. You can generate a full file from your virtualenv with:
+#   pip freeze > backend/requirements.txt

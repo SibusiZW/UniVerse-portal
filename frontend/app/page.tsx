@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image"
 import { useState } from "react";
+import { LogIn } from "lucide-react";
 
 export default function Home() {
 
@@ -26,6 +27,10 @@ export default function Home() {
           <form>
             <input className="p-4 w-75 border border-blue-300 rounded-md mb-4" placeholder="Enter student no. e.g, ST12345678" value={username} onChange={(e) => setUsername(e.target.value)} required/>
             <input className="p-4 w-75 border border-blue-300 rounded-md" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+
+            <button className="w-full inline-flex items-center justify-center gap-2 py-2 px-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition duration-150 ease-in-out shadow-md mt-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="submit">
+              <LogIn size={20}/> Log In
+            </button>
           </form>
      </div>
     </div>

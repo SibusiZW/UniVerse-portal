@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation";
+import { Newspaper } from "lucide-react";
 
 interface Announcement {
     id: number,
@@ -11,6 +13,8 @@ interface Announcement {
 
 export default function AnnouncementsPage() {
     const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+    const [session, setSession] = useState(false);
+    const router = useRouter();
 
     useEffect(() => {
         fetch("http://localhost:3000/api/announcements")
@@ -18,9 +22,11 @@ export default function AnnouncementsPage() {
             .then(data => setAnnouncements(data))
     }, [])
 
+
     return (
         <div className="space-y-4">
             <h1 className="text-4xl font-semibold">University Announcements</h1>
+            <Newspaper size={50}/>
 
             <ul>
                 {

@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { GraduationCap } from "lucide-react";
 
 interface Course {
     course_code: string,
@@ -16,11 +17,12 @@ export default function CoursesPage() {
         fetch("/api/courses")
             .then(res => res.json())
             .then(data => setCourses(data))
-    })
+    }, [])
 
     return (
         <div>
             <h1 className="text-4xl font-semibold mb-6">Courses Offered</h1>
+            <GraduationCap size={50} />
 
             <ul>
                 {courses.map(c => 

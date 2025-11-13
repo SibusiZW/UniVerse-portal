@@ -10,7 +10,7 @@ interface Enrollment {
     date_enrolled: string
 }
 
-export default function Page() {
+export default function EnrollmentPage() {
     const [studentName, setStudentName] = useState("");
     const [enrollment, setEnrollement] = useState<Enrollment>();
 
@@ -40,13 +40,12 @@ export default function Page() {
         getEnrollment(name);
     }, []);
 
-
-
-
+    if (enrollment) {
+        localStorage.setItem("course", enrollment?.course);
+    }
 
     return (
         <div>
-            <h1 className="text-4xl font-semibold mb-6">Enrollments</h1>
             <Landmark className="mb-6" size={100} />
             
             <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl transition-shadow duration-300 mb-4">
@@ -54,6 +53,7 @@ export default function Page() {
                 <p className="text-2xl mt-6">{enrollment?.course}</p>
                 <p className="text-sm mt-6">You've got a/an: {enrollment?.grade}</p>
                 <p>Course ID: {enrollment?.id}</p>
+                <p className="text-2xl">{enrollment?.student}'s Course w/ results</p>
             </div>
         </div>
     )

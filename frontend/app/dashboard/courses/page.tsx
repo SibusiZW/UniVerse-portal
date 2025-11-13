@@ -21,7 +21,6 @@ export default function CoursesPage() {
 
     return (
         <div>
-            <h1 className="text-4xl font-semibold mb-6">Courses Offered</h1>
             <GraduationCap size={100} />
 
             <ul>

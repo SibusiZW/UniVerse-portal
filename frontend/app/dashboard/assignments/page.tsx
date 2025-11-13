@@ -1,7 +1,9 @@
 "use client";
 
+import { NotebookPen } from "lucide-react";
+
 export default function AssignmentsPage() {
     return (
-        <h1>Something</h1>
+        <NotebookPen className="mb-6" size={100}/>
     )
 }

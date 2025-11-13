@@ -26,7 +26,7 @@ export default function AnnouncementsPage() {
     return (
         <div className="space-y-4">
             <h1 className="text-4xl font-semibold">University Announcements</h1>
-            <Newspaper size={50}/>
+            <Newspaper size={100}/>
 
             <ul>
                 {

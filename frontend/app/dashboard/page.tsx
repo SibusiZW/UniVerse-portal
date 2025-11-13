@@ -1,5 +1,5 @@
 "use client";
-
+import { Home } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function DashboardMainPage() {
@@ -15,6 +15,7 @@ export default function DashboardMainPage() {
 
     return (
         <div>
+            <Home className="mb-6" size={100}/>
             <h1 className="text-xl font-semibold">{`Welcome ${username}!`}</h1>
         </div>
     )

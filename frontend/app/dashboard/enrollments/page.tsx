@@ -2,7 +2,8 @@
 import { useState, useEffect } from "react";
 import { Landmark } from "lucide-react";
 
-export default function EnrollmentsPage() {
+
+export default function Page() {
     const [studentName, setStudentName] = useState("");
 
     useEffect(() => {
@@ -14,11 +15,12 @@ export default function EnrollmentsPage() {
     });
 
 
+
     return (
         <div>
             <h1 className="text-4xl font-semibold mb-6">Enrollments</h1>
-            <Landmark size={50} />
-            
+            <Landmark className="mb-6" size={50} />
+            <p>{studentName}</p>
         </div>
     )
 }
